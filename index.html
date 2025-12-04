@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daily Companion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+</head>
+
+<body>
+<header>
+  <h1>Daily Companion</h1>
+  <p>Voice reminders & emergency help</p>
+  <button id="senior-mode">👴 Senior Mode OFF</button>
+  <span id="offline-status">Offline</span>
+</header>
+
+<main>
+
+<section class="card">
+  <h2>Add Reminder</h2>
+  <input id="task-title" placeholder="Take medicine" required/>
+  <textarea id="task-notes" placeholder="After food (Optional)"></textarea>
+
+  <div class="row">
+    <input type="date" id="task-date" />
+    <input type="time" id="task-time" />
+  </div>
+
+  <div class="row">
+    <button id="voice-btn">🎤 Speak Task</button>
+    <button id="save-btn" class="primary">Save Reminder</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Your Tasks</h2>
+  <ul id="task-list">
+    </ul>
+</section>
+
+<section class="card emergency">
+  <h2>Emergency Contact</h2>
+
+  <input id="emergency-number" placeholder="+91 9876543210 (Saved automatically)" type="tel"/>
+  <div id="number-display">📞 Tap to copy number</div>
+
+  <div class="row">
+    <button id="call-btn" class="danger">☎️ Call Now</button>
+    <button id="location-btn">📍 Share Location</button>
+  </div>
+
+  <p id="location-status"></p>
+</section>
+
+</main>
+
+<div id="qr-modal" class="modal">
+  <div class="modal-content">
+    <h3>Scan to Call</h3>
+    <canvas id="qr-canvas" width="256" height="256"></canvas>
+    <button id="close-qr" class="primary">Close</button>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script src="qrcode.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
